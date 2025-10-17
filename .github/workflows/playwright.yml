@@ -36,14 +36,14 @@ jobs:
         retention-days: 30
 
     - uses: actions/github-script@v8
-      # if: ${{ !success() }}
+      if: ${{ !success() }}
       with:
         script: |
           await github.rest.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
             title: 'CI failed',
-            body: 'ping @tdeo',
+            body: '@tdeo you need to check what happened, ski class reservations might be opened',
           });
 
 
